@@ -1,4 +1,19 @@
-require("blend2d")
+local ffi = require("ffi")
+
+ffi.cdef[[
+struct Rgba32 {
+    union {
+        uint32_t value;
+        
+        struct {  
+            uint32_t b : 8;
+            uint32_t g : 8;
+            uint32_t r : 8;
+            uint32_t a : 8;
+        };
+    };
+};
+]]
 
 --[[
 	Convert to luminance using ITU-R Recommendation BT.709 (CCIR Rec. 709)
@@ -57,12 +72,12 @@ local function color(...)
             a = select(4,...)
         end
         
-        local pix = BLRgba32()
+        local pix = ffi.new("struct Pixel32", r, g, b, a)
     --print("r,g,b: ", r,g,b)
-        pix.r = r
-        pix.g = g
-        pix.b = b 
-        pix.a = a
+        --pix.r = r
+        --pix.g = g
+        --pix.b = b 
+        --pix.a = a
     
         return pix;
     end

@@ -433,32 +433,7 @@ function DeviceContext.StretchBlt(self, img, XDest, YDest,DestWidth,DestHeight)
 				bmInfo);
 end
 
---[[
-	Path handling
-	Within a Begin/EndPath, you can use the following drawing commands
 
---AngleArc 
---Arc 
---ArcTo 
---Chord 
---CloseFigure 
---Ellipse 
---ExtTextOut 
---LineTo 
---MoveToEx 
---Pie 
---PolyBezier 
---PolyBezierTo 
---PolyDraw 
---Polygon 
---Polyline 
---PolylineTo 
---PolyPolygon 
---PolyPolyline 
---Rectangle 
---RoundRect 
---TextOut 
-]]
 function DeviceContext.BeginPath(self)
 	local success = C.BeginPath(self.Handle)~=0;
 	return success;

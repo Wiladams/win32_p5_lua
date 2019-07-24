@@ -33,8 +33,6 @@ local sched = require("p5.scheduler")
 local coloring = require("p5.coloring")
 
 
-local WindowKind = require("WindowKind")
-local NativeWindow = require("nativewindow")
 local wmmsgs = require("wm_reserved")
 local DeviceContext = require("DeviceContext")
 local GDISurface = require("GDISurface")
@@ -224,14 +222,7 @@ function color(...)
     pix.Red = r
     pix.Green = g
     pix.Blue = b 
-    --pix.Alpha = a  
-
-	--self.cref = wingdi.RGB(r,g,b)
-	
-	--self.R = r
-	--self.G = g
-	--self.B = b
-	--self.A = a
+    --pix.Alpha = a 
 
 	return pix;
 end
